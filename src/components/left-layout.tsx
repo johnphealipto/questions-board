@@ -58,8 +58,8 @@ const LeftLayout = ({
         </p>
         <div className="text-black/90 text-sm space-y-4">
           <p>
-            ✅ No Entirely Right or Wrong Answers - Each question has multiple
-            choices, and the correct answer depends on the individual.
+            ✅ There's No Entirely Right or Wrong Answers - Each question has
+            multiple choices, and the correct answer depends on the individual.
           </p>
           <p>
             🔄 Turn-Based Selection - After answering a question, the player

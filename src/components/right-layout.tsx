@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { QUESTIONS_BOARD } from "../constants";
 
 const LETTERS = ["A", "B", "C", "D"];
@@ -24,6 +24,11 @@ const RightLayout = ({
   const isAnswered =
     selected.includes(active) && selected[selected.length - 1] !== active;
 
+  useEffect(() => {
+    // reset selected option when question changes
+    setSelectedOption(undefined);
+  }, [active]);
+
   return (
     <div
       style={{
@@ -31,6 +36,7 @@ const RightLayout = ({
         width: "100%",
         borderRadius: 20,
         padding: 30,
+        overflow: "auto",
       }}
     >
       {!selected.includes(active) && (
@@ -78,10 +84,10 @@ const RightLayout = ({
                   <img
                     src={item.url}
                     alt={item.item}
-                    className="mt-2"
                     width={150}
                     height={150}
-                    style={{ width: "25%" }}
+                    className="mt-2 rounded-lg"
+                    style={{ width: "15%" }}
                   />
                 )}
               </button>
