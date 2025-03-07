@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { QUESTIONS_BOARD } from "../constants";
 
 const LETTERS = ["A", "B", "C", "D"];
+const NUMBERS = Array.from(Array(QUESTIONS_BOARD.length), (_, x) => x + 1);
 
 const RightLayout = ({
   active,
@@ -13,8 +14,10 @@ const RightLayout = ({
   const [picked, setPicked] = useState("");
   const [selectedOption, setSelectedOption] = useState<number>();
 
-  const handleRandomQuestion = (min = 1, max = 30) => {
-    const number = Math.floor(Math.random() * (max - min + 1) + min);
+  const handleRandomQuestion = () => {
+    const unselected = NUMBERS.filter((x) => !selected.includes(x - 1));
+    // const number = Math.floor(Math.random() * (max - min + 1) + min);
+    const number = unselected[Math.floor(Math.random() * unselected.length)];
     const option = LETTERS[Math.floor(Math.random() * LETTERS.length)];
     setPicked(`${number}-${option}`);
   };

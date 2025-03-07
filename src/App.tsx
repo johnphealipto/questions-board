@@ -24,7 +24,11 @@ function App() {
 
   return (
     <div style={{ display: "flex", height: "100%", padding: 30 }}>
-      <LeftLayout selected={selected} handleSelect={handleSelect} />
+      <LeftLayout
+        active={active}
+        selected={selected}
+        handleSelect={handleSelect}
+      />
       <RightLayout active={active} selected={selected} />
     </div>
   );
